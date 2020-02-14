@@ -1,0 +1,5 @@
+alias reload='source ~/.bashrc'
+alias ll='ls -l'
+alias la='ls -la'
+alias suspend='systemctl suspend'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'

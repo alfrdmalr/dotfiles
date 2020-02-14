@@ -1,0 +1,43 @@
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1017,
+       "width": 939,
+       "x": 0,
+       "y": 0
+    },
+    "name": "i3: Layout saving in i3 - Mozilla Firefox",
+    "percent": 0.6,
+    "swallows": [
+       {
+        "class": "^firefox$",
+       "instance": "^Navigator$",
+       "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 364,
+       "width": 644,
+       "x": 0,
+       "y": 0
+    },
+    "name": "lfre@hades:~",
+    "percent": 0.4,
+    "swallows": [
+       {
+       "class": "^URxvt$",
+       "instance": "^urxvt$"
+       }
+    ],
+    "type": "con"
+}
+

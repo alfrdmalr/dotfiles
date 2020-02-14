@@ -1,0 +1,14 @@
+!define myFont Inconsolata-Regular
+#define myFont Hack Nerd Font Mono
+!define myFont Source Code Pro
+
+#define myFontSize 12
+
+! font settings
+URxvt*font: xft:myFont:pixelsize=myFontSize
+URxvt*italicFont: xft:myFont:italic:pixelsize=myFontSize
+URxvt*boldFont: xft:myFont:bold:autohint=true:pixelsize=myFontSize
+URxvt*boldItalicFont: xft:myFont:bold:italic:autohint=true:pixelsize=myFontSize
+
+! disable scrollbar
+URxvt.scrollBar: false

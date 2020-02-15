@@ -13,31 +13,33 @@ wallpaper-path-helper() {
     else
       echo $@
   fi
-}  
+}
+
+# takes two arguments: a theming-related command, and an image path to handle and pass in 
+theme-wrapper() {
+  local IMG=`wallpaper-path-helper ${2}`
+  if [ ! -z $IMG ]
+    then eval ${1} $IMG
+  fi
+}
 
 # use input image to set colorscheme
 set-colorscheme() {
-  local IMG=`wallpaper-path-helper $@`
-  if [ ! -z $IMG ]
-    then wal -n -i $IMG 
-  fi
+  theme-wrapper 'wal -n -i' $@ 
 }
 
 # use input image to set colorscheme
 set-wallpaper() {
-  local IMG=`wallpaper-path-helper $@`
-  if [ ! -z $IMG ]
-    then feh --bg-fill --no-xinerama $IMG
-  fi
+  theme-wrapper 'feh --bg-fill --no-xinerama' $@
 }
 
 # set wallpaper and colorscheme at once
 set-theme() {
-  local IMG=`wallpaper-path-helper $@`
-  if [ ! -z $IMG ]
-    then wal -n -i $IMG
-         set-wallpaper "$(< "${HOME}"/.cache/wal/wal)"
-  fi
+  set-both() {
+    wal -n -i ${1}
+    set-wallpaper ${1}
+  }
+  theme-wrapper 'set-both' $@
 }
 
 waltest() {

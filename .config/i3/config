@@ -32,7 +32,7 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt 
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Delete kill
 
 # start dmenu (a program launcher)
 bindsym $mod+m exec dmenu_run
@@ -171,19 +171,24 @@ for_window [class=".*"] border pixel 0
 gaps inner 15
 gaps outer 0 
 
+# startup
+# open layouts & populate with apps
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
+exec --no-startup-id urxvt
+exec --no-startup-id firefox 
+
+exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/workspace-2.json'"
+exec --no-startup-id urxvt
+exec --no-startup-id urxvt
+exec --no-startup-id urxvt
+exec --no-startup-id urxvt
+exec --no-startup-id urxvt
+
+# some apps/services need to be run every time i3 loads 
+
+exec_always --no-startup-id "pkill picom;picom -b" 
+
 # start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# open layouts 
-exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
-exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/workspace-2.json'"
 
-# open some apps on startup
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt
-exec --no-startup-id "picom -b"
-exec --no-startup-id firefox 

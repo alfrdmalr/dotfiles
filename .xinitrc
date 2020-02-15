@@ -1,5 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I@HOME ~/.Xresources
 ~/.fehbg &
-wal -i "$(< "${HOME}/.cache/wal/wal")" -n
+wal -n -R
 unclutter --timeout 2 &
 exec i3

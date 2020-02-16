@@ -16,6 +16,6 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # source scripts
-if [ -d ~/.bash_scripts ]; then
-  for f in ~/.bash_scripts/*; do source $f; done
+if [ -d ~/scripts/bash ]; then
+  for f in ~/scripts/bash/*; do source $f; done
 fi    

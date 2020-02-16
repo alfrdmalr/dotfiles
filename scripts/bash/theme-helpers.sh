@@ -41,7 +41,3 @@ set-theme() {
   }
   theme-wrapper 'set-both' $@
 }
-
-waltest() {
-  wal -i "$(< "${HOME}/.cache/wal/wal")" -n
-}

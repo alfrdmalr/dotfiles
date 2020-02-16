@@ -154,13 +154,13 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: Enter or Escape or $mod+Caps_Lock
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $mod+Caps_Lock mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+Caps_Lock mode "resize"
 
 
 # stuff i've changed:
@@ -169,7 +169,10 @@ for_window [class=".*"] border pixel 0
 
 # gap stuff
 gaps inner 15
-gaps outer 0 
+gaps outer 15 
+
+# smaller gap where polybar resides 
+gaps top 0
 
 # startup
 # open layouts & populate with apps

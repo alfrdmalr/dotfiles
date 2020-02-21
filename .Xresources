@@ -1,14 +1,15 @@
-!define myFont Inconsolata-Regular
-#define myFont Hack Nerd Font Mono
+#define myFont Inconsolata
+!define myFont Hack Nerd Font Mono
 !define myFont Source Code Pro
 
-#define myFontSize 12
+#define myFontSize 14
 
 ! font settings
+! only scp has semibold, so make sure to change to 'bold' if not using
 URxvt*font: xft:myFont:pixelsize=myFontSize
 URxvt*italicFont: xft:myFont:italic:pixelsize=myFontSize
-URxvt*boldFont: xft:myFont:bold:autohint=true:pixelsize=myFontSize
-URxvt*boldItalicFont: xft:myFont:bold:italic:autohint=true:pixelsize=myFontSize
+URxvt*boldFont: xft:myFont:semibold:autohint=true:pixelsize=myFontSize
+URxvt*boldItalicFont: xft:myFont:semibold:italic:autohint=true:pixelsize=myFontSize
 
 ! disable scrollbar
 URxvt.scrollBar: false

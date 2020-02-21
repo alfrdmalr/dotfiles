@@ -1,14 +1,5 @@
 # set wallpaper directory
-export WALLPAPER_HOME=~/wallpapers
-
-# set wallpaper and colorscheme at once
-set-theme() {
-  local IMG=`wallpaper-path-helper $@`
-  if [ ! -z $IMG ]
-    then wal -n -i $IMG
-         set-wallpaper "$(< "${HOME}"/.cache/wal/wal)"
-  fi
-}
+export WALLPAPER_HOME=~/images/wallpapers
 
 # source aliases
 if [ -f ~/.bash_aliases ]; then

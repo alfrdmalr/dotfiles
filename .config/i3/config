@@ -79,9 +79,6 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -172,8 +169,12 @@ gaps outer 0
 # smaller gap where polybar resides 
 gaps top 0
 
+# increment/decrement gapsize by 5
 bindsym $mod+equal exec --no-startup-id i3-msg "gaps inner all plus 5"
 bindsym $mod+minus exec --no-startup-id i3-msg "gaps inner all minus 5"
+
+# toggle tiling / floating
+bindsym $mod+plus floating toggle
 
 # media controls
 

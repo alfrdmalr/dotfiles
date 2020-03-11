@@ -79,9 +79,6 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -162,17 +159,33 @@ mode "resize" {
 
 bindsym $mod+Caps_Lock mode "resize"
 
-
-# stuff i've changed:
-
+# disable border
 for_window [class=".*"] border pixel 0
 
 # gap stuff
 gaps inner 15
-gaps outer 15 
+gaps outer 0 
 
 # smaller gap where polybar resides 
 gaps top 0
+
+# increment/decrement gapsize by 5
+bindsym $mod+equal exec --no-startup-id i3-msg "gaps inner all plus 5"
+bindsym $mod+minus exec --no-startup-id i3-msg "gaps inner all minus 5"
+
+# toggle tiling / floating
+bindsym $mod+Shift+equal floating toggle
+
+# media controls
+
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
+
+# can't get mute toggle to work so Mute will just set the volume to zero for now
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2% 
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2%
 
 # startup
 # open layouts & populate with apps

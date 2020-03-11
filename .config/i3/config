@@ -197,8 +197,8 @@ exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/workspace-
 exec --no-startup-id urxvt
 exec --no-startup-id urxvt
 exec --no-startup-id urxvt
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt
+exec --no-startup-id urxvt -e cava
+exec --no-startup-id urxvt -n ncmpcpp -e ncmpcpp
 
 # some apps/services need to be run every time i3 loads 
 
@@ -206,5 +206,4 @@ exec_always --no-startup-id "pkill picom;picom -b"
 
 # start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 

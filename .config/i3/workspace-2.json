@@ -87,12 +87,13 @@
                "x": 0,
                "y": 0
             },
-            "name": "lfre@hades:~", //ncmpcpp
+            "name": "ncmpcpp", 
             "percent": 0.333333333333333,
             "swallows": [
                {
                "class": "^URxvt$",
-               "instance": "^urxvt$"
+               "instance": "^urxvt$",
+               "title": "^ncmpcpp*"
                }
             ],
             "type": "con"
@@ -107,12 +108,13 @@
                "x": 0,
                "y": 0
             },
-            "name": "lfre@hades:~", //cava
+            "name": "cava", 
             "percent": 0.333333333333333,
             "swallows": [
                {
                "class": "^URxvt$",
-               "instance": "^urxvt$"
+               "instance": "^urxvt$",
+               "title": "^cava$"
                }
             ],
             "type": "con"

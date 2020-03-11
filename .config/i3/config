@@ -174,7 +174,7 @@ bindsym $mod+equal exec --no-startup-id i3-msg "gaps inner all plus 5"
 bindsym $mod+minus exec --no-startup-id i3-msg "gaps inner all minus 5"
 
 # toggle tiling / floating
-bindsym $mod+plus floating toggle
+bindsym $mod+Shift+equal floating toggle
 
 # media controls
 

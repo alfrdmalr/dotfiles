@@ -202,6 +202,7 @@ exec --no-startup-id urxvt -n ncmpcpp -e ncmpcpp
 
 # some apps/services need to be run every time i3 loads 
 
+# restart picom so transparency is applied correctly
 exec_always --no-startup-id "pkill picom;picom -b" 
 
 # start polybar

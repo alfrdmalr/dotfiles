@@ -2,13 +2,13 @@
 #
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
-#
 
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -29,13 +29,13 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt 
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Delete kill
 
 # start dmenu (a program launcher)
-bindsym $mod+m exec dmenu_run
+bindsym $mod+Escape exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -114,16 +114,16 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+$alt+1 move container to workspace $ws1
+bindsym $mod+$alt+2 move container to workspace $ws2
+bindsym $mod+$alt+3 move container to workspace $ws3
+bindsym $mod+$alt+4 move container to workspace $ws4
+bindsym $mod+$alt+5 move container to workspace $ws5
+bindsym $mod+$alt+6 move container to workspace $ws6
+bindsym $mod+$alt+7 move container to workspace $ws7
+bindsym $mod+$alt+8 move container to workspace $ws8
+bindsym $mod+$alt+9 move container to workspace $ws9
+bindsym $mod+$alt+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -166,9 +166,6 @@ for_window [class=".*"] border pixel 0
 gaps inner 15
 gaps outer 0 
 
-# smaller gap where polybar resides 
-gaps top 0
-
 # increment/decrement gapsize by 5
 bindsym $mod+equal exec --no-startup-id i3-msg "gaps inner all plus 5"
 bindsym $mod+minus exec --no-startup-id i3-msg "gaps inner all minus 5"
@@ -177,33 +174,18 @@ bindsym $mod+minus exec --no-startup-id i3-msg "gaps inner all minus 5"
 bindsym $mod+Shift+equal floating toggle
 
 # media controls
-
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
 
-# can't get mute toggle to work so Mute will just set the volume to zero for now
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2% 
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2%
 
 # startup
 # open layouts & populate with apps
-exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
-exec --no-startup-id urxvt
-exec --no-startup-id firefox 
 
-exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/workspace-2.json'"
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt
-exec --no-startup-id urxvt -e cava
-exec --no-startup-id urxvt -n ncmpcpp -e ncmpcpp
-
-# some apps/services need to be run every time i3 loads 
-
-# restart picom so transparency is applied correctly
-exec_always --no-startup-id "pkill picom;picom -b" 
+exec --no-startup-id ~/scripts/i3/start-workspace.sh
 
 # start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

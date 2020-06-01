@@ -1,5 +1,5 @@
 {
-    // left side; 2 vsplit terminals 
+    // splitv split container with 2 children
     "border": "normal",
     "floating": "auto_off",
     "layout": "splitv",
@@ -11,8 +11,8 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 364,
-               "width": 644,
+               "height": 1022,
+               "width": 1892,
                "x": 0,
                "y": 0
             },
@@ -20,8 +20,8 @@
             "percent": 0.5,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$"
+                "class": "^kitty$",
+                "instance": "^term-1$"
                }
             ],
             "type": "con"
@@ -31,8 +31,8 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 364,
-               "width": 644,
+               "height": 1022,
+               "width": 1892,
                "x": 0,
                "y": 0
             },
@@ -40,8 +40,8 @@
             "percent": 0.5,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$"
+                "class": "^kitty$",
+                "instance": "^term-2$"
                }
             ],
             "type": "con"
@@ -50,7 +50,7 @@
 }
 
 {
-    // right side; 3 vsplit terminals 
+    // splitv split container with 2 children
     "border": "normal",
     "floating": "auto_off",
     "layout": "splitv",
@@ -62,17 +62,17 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 364,
-               "width": 644,
+               "height": 1022,
+               "width": 1892,
                "x": 0,
                "y": 0
             },
-            "name": "lfre@hades:~", //ranger
-            "percent": 0.333333333333333,
+            "name": "lfre@hades:~",
+            "percent": 0.8,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$"
+                "class": "^kitty$",
+                "instance": "^spt$"
                }
             ],
             "type": "con"
@@ -82,39 +82,17 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 364,
-               "width": 644,
+               "height": 1022,
+               "width": 1892,
                "x": 0,
                "y": 0
             },
-            "name": "ncmpcpp", 
-            "percent": 0.333333333333333,
+            "name": "cava",
+            "percent": 0.2,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$",
-               "title": "^ncmpcpp*"
-               }
-            ],
-            "type": "con"
-        },
-        {
-            "border": "pixel",
-            "current_border_width": 0,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 364,
-               "width": 644,
-               "x": 0,
-               "y": 0
-            },
-            "name": "cava", 
-            "percent": 0.333333333333333,
-            "swallows": [
-               {
-               "class": "^URxvt$",
-               "instance": "^urxvt$",
-               "title": "^cava$"
+                "class": "^kitty$",
+                "instance": "^cava$"
                }
             ],
             "type": "con"

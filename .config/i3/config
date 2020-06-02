@@ -184,7 +184,6 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2%
 
 # startup
 # open layouts & populate with apps
-
 exec --no-startup-id ~/scripts/i3/start-workspace.sh
 
 # start polybar

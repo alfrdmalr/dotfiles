@@ -1,6 +1,9 @@
 # set wallpaper directory
 export WALLPAPER_HOME=~/images/wallpapers
 
+# allow dotfiles in fzf
+export FZF_DEFAULT_COMMAND='find .'
+
 # source aliases
 if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases

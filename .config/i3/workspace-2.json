@@ -1,9 +1,8 @@
 {
-    // left side; 2 vsplit terminals 
     "border": "normal",
     "floating": "auto_off",
     "layout": "splitv",
-    "percent": 0.5,
+    "percent": 0.283333333333333,
     "type": "con",
     "nodes": [
         {
@@ -11,8 +10,8 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 364,
-               "width": 644,
+               "height": 1022,
+               "width": 1892,
                "x": 0,
                "y": 0
             },
@@ -20,8 +19,8 @@
             "percent": 0.5,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$"
+               "class": "^kitty$",
+               "instance": "^term-2-a$"
                }
             ],
             "type": "con"
@@ -31,8 +30,8 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 364,
-               "width": 644,
+               "height": 1022,
+               "width": 1892,
                "x": 0,
                "y": 0
             },
@@ -40,8 +39,8 @@
             "percent": 0.5,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$"
+               "class": "^kitty$",
+               "instance": "^term-2-b$"
                }
             ],
             "type": "con"
@@ -50,71 +49,107 @@
 }
 
 {
-    // right side; 3 vsplit terminals 
     "border": "normal",
     "floating": "auto_off",
     "layout": "splitv",
-    "percent": 0.5,
+    "percent": 0.428638497652582,
     "type": "con",
     "nodes": [
         {
             "border": "pixel",
             "current_border_width": 0,
-            "floating": "auto_off",
+            "floating": "user_off",
             "geometry": {
-               "height": 364,
-               "width": 644,
+               "height": 504,
+               "width": 466,
                "x": 0,
                "y": 0
             },
-            "name": "lfre@hades:~", //ranger
-            "percent": 0.333333333333333,
+            "name": "lfre@hades:~",
+            "percent": 1,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$"
+               "class": "^kitty$",
+               "instance": "^term-2-c$"
                }
             ],
             "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.288028169014085,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": 0.7,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 0,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1022,
+                       "width": 1892,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "lfre@hades:~",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       "class": "^kitty$",
+                       "instance": "^term-2-d$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 0,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 336,
+                       "width": 939,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "lfre@hades:~",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                        "class": "^kitty$",
+                        "instance": "^term-2-e$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
         },
         {
             "border": "pixel",
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 364,
-               "width": 644,
+               "height": 1022,
+               "width": 1892,
                "x": 0,
                "y": 0
             },
-            "name": "ncmpcpp", 
-            "percent": 0.333333333333333,
+            "name": "lfre@hades:~",
+            "percent": 0.3,
             "swallows": [
                {
-               "class": "^URxvt$",
-               "instance": "^urxvt$",
-               "title": "^ncmpcpp*"
-               }
-            ],
-            "type": "con"
-        },
-        {
-            "border": "pixel",
-            "current_border_width": 0,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 364,
-               "width": 644,
-               "x": 0,
-               "y": 0
-            },
-            "name": "cava", 
-            "percent": 0.333333333333333,
-            "swallows": [
-               {
-               "class": "^URxvt$",
-               "instance": "^urxvt$",
-               "title": "^cava$"
+               "class": "^kitty$",
+               "instance": "^term-2-f$"
                }
             ],
             "type": "con"

@@ -1,23 +1,50 @@
 {
     "border": "pixel",
-    "current_border_width": 0,
     "floating": "auto_off",
-    "geometry": {
-       "height": 1017,
-       "width": 939,
-       "x": 0,
-       "y": 0
-    },
-    "name": "i3: Layout saving in i3 - Mozilla Firefox",
-    "percent": 0.6,
-    "swallows": [
-       {
-        "class": "^firefox$",
-       "instance": "^Navigator$",
-       "window_role": "^browser$"
-       }
-    ],
-    "type": "con"
+    "layout": "splitv",
+    "percent": 0.3,
+    "nodes": [
+      {
+        "border": "pixel",
+        "current_border_width": 0,
+        "floating": "auto_off",
+        "geometry": {
+          "height": 1022,
+          "width": 1892,
+          "x": 0,
+          "y": 0
+        },
+        "name": "lfre@hades:~",
+        "percent": 0.7,
+        "swallows": [
+          {
+            "class": "^kitty$",
+            "instance": "^term-1-a$"
+          }
+        ],
+        "type": "con"
+      },
+      {
+        "border": "pixel",
+        "current_border_width": 0,
+        "floating": "auto_off",
+        "geometry": {
+          "height": 1022,
+          "width": 1892,
+          "x": 0,
+          "y": 0
+        },
+        "name": "lfre@hades:~",
+        "percent": 0.3,
+        "swallows": [
+          {
+            "class": "^kitty$",
+            "instance": "^term-1-b$"
+          }
+        ],
+        "type": "con"
+      }
+    ]
 }
 
 {
@@ -25,17 +52,16 @@
     "current_border_width": 0,
     "floating": "auto_off",
     "geometry": {
-       "height": 364,
-       "width": 644,
+       "height": 1022,
+       "width": 1892,
        "x": 0,
        "y": 0
     },
-    "name": "lfre@hades:~",
-    "percent": 0.4,
+    "name": "i3: Layout saving in i3 - Mozilla Firefox",
+    "percent": 0.7,
     "swallows": [
        {
-       "class": "^URxvt$",
-       "instance": "^urxvt$"
+        "class": "^firefox$"
        }
     ],
     "type": "con"

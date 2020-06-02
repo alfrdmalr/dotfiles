@@ -71,9 +71,6 @@ bindsym $mod+Home split h
 # split in vertical orientation
 bindsym $mod+End split v
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -170,13 +167,16 @@ gaps outer 0
 bindsym $mod+equal exec --no-startup-id i3-msg "gaps inner all plus 5"
 bindsym $mod+minus exec --no-startup-id i3-msg "gaps inner all minus 5"
 
-# toggle tiling / floating
-bindsym $mod+Shift+equal floating toggle
+# toggle fullscreen
+bindsym $mod+Shift+equal fullscreen toggle
+
+# toggle floating
+bindsym $mod+f floating toggle
 
 # media controls
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
 
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2% 

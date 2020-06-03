@@ -1,6 +1,7 @@
 !define myFont Hack Nerd Font Mono
-#define myFont Inconsolata
+!define myFont Inconsolata
 !define myFont Source Code Pro
+#define myFont Iosevka
 
 #define myFontSize 12 
 

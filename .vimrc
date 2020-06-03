@@ -31,6 +31,13 @@ set incsearch "show results while searching
 set ignorecase "case insensitive search by default
 set smartcase "switch to sensitive search if capital letters present
 
+"netrw stuff
+"start with banner collapsed
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<Tab>"
 "tab complete first suggestion if none selected:
@@ -41,4 +48,10 @@ nnoremap <C-LEFT> <C-W><C-H>
 nnoremap <C-DOWN> <C-W><C-J> 
 nnoremap <C-UP> <C-W><C-K> 
 nnoremap <C-RIGHT> <C-W><C-L>
+"fuzzy find with control-p
+nnoremap <C-P> :FZF<CR>
+"ripgrep search from current dir
+nnoremap <F8> :Rg<CR>
+"toggle netrw directory tree
+nnoremap <F4> :Lexplore<CR>
 

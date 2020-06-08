@@ -40,9 +40,6 @@ set smartcase "switch to sensitive search if capital letters present
 "netrw stuff
 "start with banner collapsed
 let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
 
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<Tab>"

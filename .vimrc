@@ -9,15 +9,11 @@ Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-angular', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 
 set number relativenumber "hybrid line number mode
-set laststatus=0 "don't show file name
-set showtabline=2 "always show tab section, even if only one is open
-:hi TabLineFill ctermfg=Black "set the fill line to be same as background
 
 set tabstop=2 "tab chars -> 2 spaces
 set softtabstop=2 "press tab -> insert 2 spaces
@@ -36,6 +32,38 @@ set foldnestmax=1 "limit one fold per fold
 set incsearch "show results while searching
 set ignorecase "case insensitive search by default
 set smartcase "switch to sensitive search if capital letters present
+
+"status line config (heavily inspired by George Onbo's config)
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatusLineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?''.l:branchname.' ':''
+endfunction
+
+set laststatus=2 "always show
+set statusline=
+"truncate from this point
+set statusline+=%<
+"show branch name if exists (max 20 chars)
+set statusline+=%#Question#
+set statusline+=%{StatusLineGit()}
+"show filename (tail)
+"set statusline+=%#SpecialKey#
+"set statusline+=%t\  
+"file name (from current dir)
+set statusline+=%#SpecialKey#
+set statusline+=%f\  
+"file type
+set statusline+=%#LineNr#
+set statusline+=%y\  
+"right side
+set statusline+=%=  
+"cur line / total lines
+set statusline+=%#Directory#
+set statusline+=%l/%L
 
 "netrw stuff
 "start with banner collapsed

@@ -27,7 +27,7 @@ syntax on
 
 set textwidth=79
 set foldmethod=indent "automatic folding based on indent
-set foldnestmax=1 "limit one fold per fold
+set foldnestmax=2 "limit one fold per fold
 
 set incsearch "show results while searching
 set ignorecase "case insensitive search by default

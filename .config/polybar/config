@@ -54,7 +54,7 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Iosevka:size=14
+font-0 = Iosevka-fixed:size=14
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 

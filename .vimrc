@@ -12,6 +12,7 @@ Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 Plug 'leafgarland/typescript-vim' "tsx syntax highlight
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
 
@@ -26,6 +27,7 @@ set smartindent
 
 set showmatch "highlight matching braces
 syntax on
+colorscheme wal "use wal theme as colorscheme
 
 set textwidth=79
 set foldmethod=indent "automatic folding based on indent

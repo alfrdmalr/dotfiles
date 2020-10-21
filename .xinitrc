@@ -2,5 +2,5 @@
 ~/.fehbg &
 wal -n -R
 unclutter --timeout 2 &
-picom &
+picom -b --experimental-backends &
 exec i3

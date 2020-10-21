@@ -89,4 +89,5 @@ nnoremap <C-P> :FZF<CR>
 nnoremap <F8> :Rg<CR>
 "toggle netrw directory tree
 nnoremap <F4> :Lexplore<CR>
+nnoremap <F12> :Git 
 

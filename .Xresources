@@ -1,12 +1,9 @@
-!define myFont Hack Nerd Font Mono
 !define myFont Inconsolata
-!define myFont Source Code Pro
-#define myFont Iosevka
+#define myFont Iosevka Fixed
 
 #define myFontSize 12 
 
 ! font settings
-! only scp has semibold, so make sure to change to 'bold' if not using
 URxvt.font: xft:myFont:size=myFontSize
 !URxvt*font: xft:myFont:pixelsize=myFontSize
 !URxvt*italicFont: xft:myFont:italic:pixelsize=myFontSize

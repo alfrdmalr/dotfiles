@@ -2,5 +2,6 @@ configuration {
   modi: "window,run,combi";
   combi-modi: "window,run";
   font: "Iosevka Fixed 14";
+  bw: 100;
   theme: "~/.cache/wal/colors-rofi-dark";
 }

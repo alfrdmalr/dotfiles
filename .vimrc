@@ -52,22 +52,22 @@ set statusline=
 "truncate from this point
 set statusline+=%<
 "show branch name if exists (max 20 chars)
-set statusline+=%#Question#
+set statusline+=%#SpecialKey#
 set statusline+=%{StatusLineGit()}
 "show filename (tail)
 "set statusline+=%#SpecialKey#
 "set statusline+=%t\  
 "file name (from current dir)
-set statusline+=%#SpecialKey#
-set statusline+=%f\  
-"file type
-set statusline+=%#LineNr#
-set statusline+=%y\  
+set statusline+=%#RedrawDebugRecompose#
+set statusline+=\ %f\  
 "right side
 set statusline+=%=  
+"file type
+set statusline+=%#RedrawDebugRecompose#
+set statusline+=%y\  
 "cur line / total lines
-set statusline+=%#Directory#
-set statusline+=%l,%c\ (%L)
+set statusline+=%#SpecialKey#
+set statusline+=\ %l,%c\ \|\ %L
 
 "netrw stuff
 "start with banner collapsed

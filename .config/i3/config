@@ -183,10 +183,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2% 
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2%
 
-# startup
-# open layouts & populate with apps
-exec --no-startup-id ~/scripts/i3/start-workspace.sh
-
-# start polybar
+# initial startup
+exec --no-startup-id firefox 
+exec --no-startup-id kitty --single-instance
+# on restart i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-

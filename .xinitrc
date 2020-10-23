@@ -4,4 +4,5 @@ xrandr --output DVI-D-1 --rotate right
 wal -n -R
 unclutter --timeout 2 &
 picom -b --experimental-backends &
-exec i3
+sxhkd &
+exec bspwm

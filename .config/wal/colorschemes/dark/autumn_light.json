@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/lfre/images/wallpapers/autumn_forest.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#282424",
+        "foreground": "#a8afb9",
+        "cursor": "#a8afb9"
+    },
+    "colors": {
+        "color0": "#120d0d",
+        "color1": "#9E5E31",
+        "color2": "#B85328",
+        "color3": "#9B6D50",
+        "color4": "#AF8A65",
+        "color5": "#DCA562",
+        "color6": "#E8BB6D",
+        "color7": "#a8afb9",
+        "color8": "#757a81",
+        "color9": "#9E5E31",
+        "color10": "#B85328",
+        "color11": "#9B6D50",
+        "color12": "#AF8A65",
+        "color13": "#DCA562",
+        "color14": "#E8BB6D",
+        "color15": "#a8afb9"
+    }
+}

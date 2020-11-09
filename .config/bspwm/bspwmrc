@@ -1,0 +1,38 @@
+#! /bin/sh
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# orient monitors like:
+# hdmi(v) | dp-1(h) | dvi-d-1(v)
+xrandr --output HDMI-1 --rotate left --left-of DP-1
+xrandr --output DVI-D-1 --rotate right --right-of DP-1
+
+# set background/colorscheme
+~/.fehbg &
+wal -n -R
+
+# hide mouse cursor
+unclutter --timeout 2 &
+
+# start compositor for transparency/blur
+picom -b --experimental-backends &
+
+$HOME/.config/polybar/launch.sh
+
+bspc monitor DVI-D-1 -d 3 6 9
+bspc monitor DP-1 -d 2 5 8
+bspc monitor HDMI-1 -d 1 4 7 0
+
+bspc config border_width        06
+bspc config window_gap          50
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   false
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+~/.config/bspwm/borders.sh &

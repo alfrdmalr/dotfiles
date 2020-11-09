@@ -29,13 +29,14 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty --single-instance
 
 # kill focused window
 bindsym $mod+Delete kill
 
 # start dmenu (a program launcher)
-bindsym $mod+Escape exec dmenu_run
+#bindsym $mod+Escape exec dmenu_run
+bindsym $mod+Escape exec rofi -show combi
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -156,12 +157,12 @@ mode "resize" {
 
 bindsym $mod+Caps_Lock mode "resize"
 
-# disable border
-for_window [class=".*"] border pixel 0
+# border settings
+for_window [class=".*"] border pixel 4
 
 # gap stuff
-gaps inner 15
-gaps outer 0 
+gaps inner 20
+gaps outer 50 
 
 # increment/decrement gapsize by 5
 bindsym $mod+equal exec --no-startup-id i3-msg "gaps inner all plus 5"
@@ -182,10 +183,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2% 
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2%
 
-# startup
-# open layouts & populate with apps
-exec --no-startup-id ~/scripts/i3/start-workspace.sh
-
-# start polybar
+# initial startup
+exec --no-startup-id firefox 
+exec --no-startup-id kitty --single-instance
+# on restart i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-

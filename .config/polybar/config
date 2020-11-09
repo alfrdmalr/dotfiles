@@ -48,17 +48,17 @@ line-color = ${colors.foreground}
 border-size = 0
 border-color = #00000000
 
-padding-left = 1
-padding-right = 1
+padding-left = 2
+padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Iosevka:size=14
+font-0 = Iosevka fixed:size=14
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3 xkeyboard
+modules-left = bspwm xkeyboard
 modules-center = mpd 
 modules-right = filesystem memory cpu pulseaudio eth date  
 
@@ -108,6 +108,34 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/bspwm]
+type = internal/bspwm
+
+format = <label-state>
+pin-workspaces = true
+enable-scroll = false
+;label-separator = |
+
+label-focused = [-]
+label-focused-padding = 0
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background}
+;label-focused-underline = ${colors.foreground}
+;label-focused-overline = ${colors.foreground}
+
+label-occupied = [_]
+label-occupied-padding = 0
+label-occupied-background = ${colors.background}
+label-occupied-foreground = ${colors.foreground-alt}
+
+label-urgent = [!]
+label-urgent-padding = 0
+
+label-empty = [ ]
+label-empty-padding = 0
+label-empty-background = ${colors.background}
+label-empty-foreground = ${colors.foreground-alt}
 
 [module/i3]
 type = internal/i3
@@ -256,7 +284,7 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume> 
 label-volume = vol:%percentage%%
 label-volume-foreground = ${root.foreground}
 

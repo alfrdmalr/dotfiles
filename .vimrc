@@ -35,6 +35,9 @@ syntax on
 colorscheme wal "use wal theme as colorscheme
 " better contrast with coc-highlight
 hi link CocFloating WarningMsg
+hi link CocErrorFloat WarningMsg
+hi link CocWarningFloat WarningMsg
+hi link CocInfoFloat WarningMsg
 
 set textwidth=79
 set foldmethod=indent "automatic folding based on indent

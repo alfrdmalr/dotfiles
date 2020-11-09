@@ -119,3 +119,24 @@ super + ctrl + shift + {Left,Down,Up,Right}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# audio
+#
+XF86AudioPlay 
+  playerctl play-pause
+
+XF86AudioPrev 
+  playerctl previous
+
+XF86AudioNext 
+  playerctl next
+
+XF86AudioMute 
+  pactl set-sink-mute 1 toggle 
+
+XF86AudioRaiseVolume 
+  pactl set-sink-volume 1 +2% 
+
+XF86AudioLowerVolume 
+  pactl set-sink-volume 1 -2%

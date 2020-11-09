@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/lfre/images/wallpapers/forestpath.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#12191a",
+        "foreground": "#d5d9d4",
+        "cursor": "#d5d9d4"
+    },
+    "colors": {
+        "color0": "#12191a",
+        "color1": "#6E746A",
+        "color2": "#847B78",
+        "color3": "#78866D",
+        "color4": "#9C8C3F",
+        "color5": "#889276",
+        "color6": "#9BA196",
+        "color7": "#d5d9d4",
+        "color8": "#959794",
+        "color9": "#6E746A",
+        "color10": "#847B78",
+        "color11": "#78866D",
+        "color12": "#9C8C3F",
+        "color13": "#889276",
+        "color14": "#9BA196",
+        "color15": "#d5d9d4"
+    }
+}

@@ -1,8 +1,9 @@
 {
     "wallpaper": "/home/lfre/images/wallpapers/autumn_forest.jpg",
     "alpha": "100",
+
     "special": {
-        "background": "#120d0d",
+        "background": "#282424",
         "foreground": "#a8afb9",
         "cursor": "#a8afb9"
     },

@@ -25,6 +25,11 @@ set expandtab "this turns tabs into spaces
 set autoindent
 set smartindent
 
+" when opening new vertical/horizontal splits, do so to the right/bottom of
+" active buffer
+set splitbelow
+set splitright
+
 set showmatch "highlight matching braces
 syntax on
 colorscheme wal "use wal theme as colorscheme

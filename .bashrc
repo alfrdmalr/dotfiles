@@ -1,6 +1,6 @@
 # set wallpaper directory
 export WALLPAPER_HOME=~/images/wallpapers
-
+export HISTSIZE=10000
 # allow dotfiles in fzf
 export FZF_DEFAULT_COMMAND='find .'
 

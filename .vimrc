@@ -37,7 +37,8 @@ hi link CocErrorFloat WarningMsg
 hi link CocWarningFloat WarningMsg
 hi link CocInfoFloat WarningMsg
 hi NvimInternalError ctermfg=0 ctermbg=9
-hi MoreMsg ctermfg=0 ctermbg=9
+"hi MoreMsg ctermfg=0 ctermbg=9
+hi Comment cterm=italic
 
 set textwidth=79
 set foldmethod=indent "automatic folding based on indent
@@ -68,12 +69,12 @@ set statusline+=%{StatusLineGit()}
 "set statusline+=%#SpecialKey#
 "set statusline+=%t\  
 "file name (from current dir)
-set statusline+=%#RedrawDebugRecompose#
+set statusline+=%#RedrawDebugComposed#
 set statusline+=\ %f\  
 "right side
 set statusline+=%=  
 "file type
-set statusline+=%#RedrawDebugRecompose#
+set statusline+=%#RedrawDebugComposed#
 set statusline+=%y\  
 "cur line / total lines
 set statusline+=%#SpecialKey#

@@ -5,10 +5,17 @@
 
 ! font settings
 URxvt.font: xft:myFont:size=myFontSize
-!URxvt*font: xft:myFont:pixelsize=myFontSize
-!URxvt*italicFont: xft:myFont:italic:pixelsize=myFontSize
-!URxvt*boldFont: xft:myFont:bold:autohint=true:pixelsize=myFontSize
-!URxvt*boldItalicFont: xft:myFont:bold:autohint=true:italic:pixelsize=myFontSize
+URxvt*italicFont: xft:myFont:italic:size=myFontSize
+URxvt*boldFont: xft:myFont:bold:autohint=true:size=myFontSize
+URxvt*boldItalicFont: xft:myFont:bold:autohint=true:italic:size=myFontSize
+
+! emit xterm keycodes instead of whatever the hell URxvt does. Mostly for vim 
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+URxvt.keysym.Control-Page_Down: \033[6;5~
+URxvt.keysym.Control-Page_Up: \033[5;5~
 
 ! disable scrollbar
 URxvt.scrollBar: false

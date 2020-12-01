@@ -5,16 +5,14 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() }} "install latest binary for fz
 Plug 'junegunn/fzf.vim' "fuzzy finder for vim
 Plug 'alvan/vim-closetag' "html tag completion
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} "completion
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 Plug 'leafgarland/typescript-vim' "tsx syntax highlight
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'dylanaraps/wal.vim'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
+
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css', 'coc-html', 'coc-vetur']
 
 set number relativenumber "hybrid line number mode
 
@@ -33,6 +31,14 @@ set splitright
 set showmatch "highlight matching braces
 syntax on
 colorscheme wal "use wal theme as colorscheme
+" better contrast with coc-highlight
+hi link CocFloating WarningMsg
+hi link CocErrorFloat WarningMsg
+hi link CocWarningFloat WarningMsg
+hi link CocInfoFloat WarningMsg
+hi NvimInternalError ctermfg=0 ctermbg=9
+"hi MoreMsg ctermfg=0 ctermbg=9
+hi Comment cterm=italic
 
 set textwidth=79
 set foldmethod=indent "automatic folding based on indent
@@ -63,12 +69,12 @@ set statusline+=%{StatusLineGit()}
 "set statusline+=%#SpecialKey#
 "set statusline+=%t\  
 "file name (from current dir)
-set statusline+=%#RedrawDebugRecompose#
+set statusline+=%#RedrawDebugComposed#
 set statusline+=\ %f\  
 "right side
 set statusline+=%=  
 "file type
-set statusline+=%#RedrawDebugRecompose#
+set statusline+=%#RedrawDebugComposed#
 set statusline+=%y\  
 "cur line / total lines
 set statusline+=%#SpecialKey#
@@ -82,6 +88,7 @@ let g:netrw_banner = 0
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<Tab>"
 "tab complete first suggestion if none selected:
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Tab>" 
+let g:user_emmet_leader_key=','
 
 "buffer split navigation
 nnoremap <C-LEFT> <C-W><C-H> 
@@ -95,4 +102,5 @@ nnoremap <F8> :Rg<CR>
 "toggle netrw directory tree
 nnoremap <F4> :Lexplore<CR>
 nnoremap <F12> :Git 
-
+nnoremap <F5> :CocFix<CR>
+nnoremap <F9> :so $MYVIMRC<CR>

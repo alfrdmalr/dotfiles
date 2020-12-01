@@ -2,7 +2,7 @@
 export WALLPAPER_HOME=~/images/wallpapers
 export HISTSIZE=10000
 # allow dotfiles in fzf
-export FZF_DEFAULT_COMMAND='find .'
+export FZF_DEFAULT_COMMAND='rg --files .'
 
 # use wal theme on new terminals
 cat ~/.cache/wal/sequences

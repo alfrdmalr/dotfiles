@@ -20,7 +20,7 @@ $HOME/.config/polybar/launch.sh
 
 bspc monitor DVI-D-1 -d 3 6 9
 bspc monitor DP-1 -d 2 5 8
-bspc monitor HDMI-1 -d 1 4 7 0
+bspc monitor HDMI-1 -d 0 1 4 7
 
 bspc config border_width        06
 bspc config window_gap          50

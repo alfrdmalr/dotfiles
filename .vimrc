@@ -101,6 +101,7 @@ nnoremap <C-P> :FZF<CR>
 nnoremap <F8> :Rg<CR>
 "toggle netrw directory tree
 nnoremap <F4> :Lexplore<CR>
-nnoremap <F12> :Git 
+nnoremap <F12> :Git<CR> 
 nnoremap <F5> :CocFix<CR>
 nnoremap <F9> :so $MYVIMRC<CR>
+nnoremap <F6> :w<CR>

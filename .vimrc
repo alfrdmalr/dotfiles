@@ -23,6 +23,9 @@ set expandtab "this turns tabs into spaces
 set autoindent
 set smartindent
 
+"edit files directly instead of in swap file
+set backupcopy=yes
+
 " when opening new vertical/horizontal splits, do so to the right/bottom of
 " active buffer
 set splitbelow

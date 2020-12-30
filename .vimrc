@@ -108,4 +108,8 @@ nnoremap <F12> :Git<CR>
 nnoremap <F5> :CocFix<CR>
 nnoremap <F9> :so $MYVIMRC<CR>
 nnoremap <F6> :w<CR>
+"open terminal in new window
 nnoremap ;t :sp<CR>:term<CR>
+"(number);f/j to indent forward/back
+noremap ;count1j :norm! <<<CR>
+noremap ;count1f :norm! >><CR>

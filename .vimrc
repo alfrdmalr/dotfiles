@@ -108,3 +108,4 @@ nnoremap <F12> :Git<CR>
 nnoremap <F5> :CocFix<CR>
 nnoremap <F9> :so $MYVIMRC<CR>
 nnoremap <F6> :w<CR>
+nnoremap ;t :sp<CR>:term<CR>

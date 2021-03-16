@@ -12,7 +12,7 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css', 'coc-html', 'coc-vetur']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css', 'coc-html', 'coc-vetur', 'coc-vimtex', 'coc-python', 'coc-pyright']
 
 set number relativenumber "hybrid line number mode
 
@@ -104,14 +104,15 @@ nnoremap <C-P> :FZF<CR>
 nnoremap <F8> :Rg<CR>
 "toggle netrw directory tree
 nnoremap <F4> :Lexplore<CR>
+"git fugitive window:
 nnoremap <F12> :Git<CR> 
+"apply suggestions
 nnoremap <F5> :CocFix<CR>
+"reload this file
 nnoremap <F9> :so $MYVIMRC<CR>
+"save
 nnoremap <F6> :w<CR>
+"pointer
+nnoremap <F2> :set cuc! cul!<CR>
 "open terminal in new window
 nnoremap ;t :sp<CR>:term<CR>
-"(number);f/j to indent forward/back
-nnoremap ;j <<
-nnoremap ;f >>
-vnoremap ;f >
-vnoremap ;j <

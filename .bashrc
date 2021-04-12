@@ -12,6 +12,11 @@ if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
 
+# source local (secret) aliases
+if [ -f ~/.bash_local_aliases ]; then
+  source ~/.bash_local_aliases
+fi
+
 # source scripts
 if [ -d ~/scripts/bash ]; then
   for f in ~/scripts/bash/*; do source $f; done

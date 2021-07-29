@@ -9,6 +9,7 @@ Plug 'leafgarland/typescript-vim' "tsx syntax highlight
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'dylanaraps/wal.vim'
 Plug 'mattn/emmet-vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -44,7 +45,7 @@ hi NvimInternalError ctermfg=0 ctermbg=9
 hi Comment cterm=italic
 
 set textwidth=79
-set foldmethod=indent "automatic folding based on indent
+set foldmethod=manual "manual folding
 set foldnestmax=2 "limit one fold per fold
 
 set incsearch "show results while searching

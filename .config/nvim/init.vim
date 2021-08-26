@@ -6,6 +6,7 @@ lua << EOF
 local nvim_lsp = require('lspconfig')
 
 local on_attach = function(client, bufnr)
+  require'completion'.on_attach(client, bufnr) 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -34,3 +35,12 @@ for _, lsp in ipairs(servers) do
   }
 end
 EOF
+
+" open menu but don't autocomplete until selected
+set completeopt=menuone,noinsert
+" up/down arrows to navigate through suggestions menu
+inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+" accept suggestion with Tab
+let g:completion_confirm_key = "\<Tab>"
+

@@ -80,12 +80,6 @@ set statusline+=\ %l,%c\ \|\ %L
 "start with banner collapsed
 let g:netrw_banner = 0
 
-"coc
-inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<Tab>"
-"tab complete first suggestion if none selected:
-inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Tab>" 
-let g:user_emmet_leader_key=','
-
 "buffer split navigation
 nnoremap <C-LEFT> <C-W><C-H> 
 nnoremap <C-DOWN> <C-W><C-J> 

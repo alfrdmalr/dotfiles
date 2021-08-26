@@ -1,22 +1,19 @@
 call plug#begin()
-
 Plug 'tpope/vim-fugitive' "git stuff
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() }} "install latest binary for fzf
 Plug 'junegunn/fzf.vim' "fuzzy finder for vim
-Plug 'alvan/vim-closetag' "html tag completion
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} "completion
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 Plug 'leafgarland/typescript-vim' "tsx syntax highlight
 Plug 'peitalin/vim-jsx-typescript'
+"Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal.vim'
-Plug 'mattn/emmet-vim'
-Plug 'lervag/vimtex'
+"Plug 'mattn/emmet-vim'
 
 call plug#end()
 
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css', 'coc-html', 'coc-vetur', 'coc-vimtex', 'coc-python', 'coc-pyright']
-
-set number relativenumber "hybrid line number mode
-
+set relativenumber "hybrid line number mode
+set number " current line number instead of 0
 set tabstop=2 "tab chars -> 2 spaces
 set softtabstop=2 "press tab -> insert 2 spaces
 set shiftwidth=2
@@ -36,12 +33,7 @@ set showmatch "highlight matching braces
 syntax on
 colorscheme wal "use wal theme as colorscheme
 " better contrast with coc-highlight
-hi link CocFloating WarningMsg
-hi link CocErrorFloat WarningMsg
-hi link CocWarningFloat WarningMsg
-hi link CocInfoFloat WarningMsg
 hi NvimInternalError ctermfg=0 ctermbg=9
-"hi MoreMsg ctermfg=0 ctermbg=9
 hi Comment cterm=italic
 
 set textwidth=79
@@ -108,12 +100,13 @@ nnoremap <F4> :Lexplore<CR>
 "git fugitive window:
 nnoremap <F12> :Git<CR> 
 "apply suggestions
-nnoremap <F5> :CocFix<CR>
+"nnoremap <F5> :CocFix<CR>
 "reload this file
 nnoremap <F9> :so $MYVIMRC<CR>
 "save
 nnoremap <F6> :w<CR>
-"pointer
+"crosshairs
 nnoremap <F2> :set cuc! cul!<CR>
+inoremap <F7> <C-X><C-O>
 "open terminal in new window
 nnoremap ;t :sp<CR>:term<CR>

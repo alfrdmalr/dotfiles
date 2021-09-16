@@ -94,7 +94,7 @@ nnoremap <F4> :Lexplore<CR>
 "git fugitive window:
 nnoremap <F12> :Git<CR> 
 "apply suggestions
-"nnoremap <F5> :CocFix<CR>
+"nnoremap <F5> ???
 "reload this file
 nnoremap <F9> :so $MYVIMRC<CR>
 "save

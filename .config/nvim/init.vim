@@ -42,5 +42,14 @@ set completeopt=menuone,noinsert
 inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
 " accept suggestion with Tab
-let g:completion_confirm_key = "\<Tab>"
-
+let g:completion_confirm_key = ""
+" if the suggestions window is open:
+" and we've focused a suggestion
+" complete that suggestion
+" otherwise, close the menu and insert a tab normally
+" otherwise just insert a tab normally
+imap <expr> <Tab>  pumvisible() ? complete_info()["selected"] != "-1" ?
+                    \ "\<Plug>(completion_confirm_completion)"  : 
+                    \ "\<c-e>\<Tab>" :  
+                  \ "\<Tab>"
+imap <silent> <c-p> <Plug>(completion_trigger)

@@ -1,29 +1,46 @@
+" options specifying ONLY {branch: main} are to circumvent the old 'master' default branch name
 call plug#begin()
-
 Plug 'tpope/vim-fugitive' "git stuff
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() }} "install latest binary for fzf
 Plug 'junegunn/fzf.vim' "fuzzy finder for vim
-Plug 'alvan/vim-closetag' "html tag completion
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} "completion
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
-Plug 'leafgarland/typescript-vim' "tsx syntax highlight
-Plug 'peitalin/vim-jsx-typescript'
+
+Plug 'neovim/nvim-lspconfig'
+"Plug 'nvim-lua/completion-nvim' "deprecated/archived
+"consider nvim-cmp vs coq
+"consider saga
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'akinsho/flutter-tools.nvim', {'branch': 'main'}
+
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+Plug 'hrsh7th/vim-vsnip' 
+
+Plug 'dart-lang/dart-vim-plugin' "dart syntax highligh
+Plug 'leafgarland/typescript-vim' "ts syntax highlight
+Plug 'peitalin/vim-jsx-typescript' "j/tsx syntax highlight
+"Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal.vim'
+"Plug 'mattn/emmet-vim'
+
 
 call plug#end()
 
-set number relativenumber "hybrid line number mode
-
+set relativenumber "hybrid line number mode
+set number " current line number instead of 0
 set tabstop=2 "tab chars -> 2 spaces
 set softtabstop=2 "press tab -> insert 2 spaces
 set shiftwidth=2
 set expandtab "this turns tabs into spaces
 set autoindent
 set smartindent
+
+"edit files directly instead of in swap file
+set backupcopy=yes
 
 " when opening new vertical/horizontal splits, do so to the right/bottom of
 " active buffer
@@ -33,9 +50,12 @@ set splitright
 set showmatch "highlight matching braces
 syntax on
 colorscheme wal "use wal theme as colorscheme
+" better contrast with coc-highlight
+hi NvimInternalError ctermfg=0 ctermbg=9
+hi Comment cterm=italic
 
 set textwidth=79
-set foldmethod=indent "automatic folding based on indent
+set foldmethod=manual "manual folding
 set foldnestmax=2 "limit one fold per fold
 
 set incsearch "show results while searching
@@ -63,12 +83,12 @@ set statusline+=%{StatusLineGit()}
 "set statusline+=%#SpecialKey#
 "set statusline+=%t\  
 "file name (from current dir)
-set statusline+=%#RedrawDebugRecompose#
+set statusline+=%#RedrawDebugComposed#
 set statusline+=\ %f\  
 "right side
 set statusline+=%=  
 "file type
-set statusline+=%#RedrawDebugRecompose#
+set statusline+=%#RedrawDebugComposed#
 set statusline+=%y\  
 "cur line / total lines
 set statusline+=%#SpecialKey#
@@ -77,11 +97,6 @@ set statusline+=\ %l,%c\ \|\ %L
 "netrw stuff
 "start with banner collapsed
 let g:netrw_banner = 0
-
-"coc
-inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<Tab>"
-"tab complete first suggestion if none selected:
-inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Tab>" 
 
 "buffer split navigation
 nnoremap <C-LEFT> <C-W><C-H> 
@@ -94,5 +109,16 @@ nnoremap <C-P> :FZF<CR>
 nnoremap <F8> :Rg<CR>
 "toggle netrw directory tree
 nnoremap <F4> :Lexplore<CR>
-nnoremap <F12> :Git 
-
+"git fugitive window:
+nnoremap <F12> :Git<CR> 
+"apply suggestions
+"nnoremap <F5> ???
+"reload this file
+nnoremap <F9> :so $MYVIMRC<CR>
+"save
+nnoremap <F6> :w<CR>
+"crosshairs
+nnoremap <F2> :set cuc! cul!<CR>
+inoremap <F7> <C-X><C-O>
+"open terminal in new window
+nnoremap ;t :sp<CR>:term<CR>

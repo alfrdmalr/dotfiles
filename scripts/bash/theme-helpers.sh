@@ -5,7 +5,7 @@
 wallpaper-path-helper() {
   if [ $# -eq 0 ]
     then
-      local selection=`ls $WALLPAPER_HOME| dmenu`
+      local selection=`ls $WALLPAPER_HOME| rofi -dmenu`
       if [ -z $selection ]
         then echo $selection
         else echo $WALLPAPER_HOME/$selection

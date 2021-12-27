@@ -4,11 +4,15 @@
 
 # terminal emulator
 super + Return
-	kitty --single-instance
+  alacritty
 
 # program launcher
 super + Escape
 	rofi -show combi
+
+# lock screen
+super + l
+  slock
 
 # make sxhkd reload its configuration files:
 super + r
@@ -43,7 +47,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
+super + {t,shift + t,f,s}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -101,7 +105,7 @@ super + ctrl + space
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
+super + ctrl + shift + Escape
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
@@ -117,7 +121,7 @@ super + ctrl + shift + {Left,Down,Up,Right}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
-super + {Left,Down,Up,Right}
+super + {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 #
@@ -140,3 +144,5 @@ XF86AudioRaiseVolume
 
 XF86AudioLowerVolume 
   pactl set-sink-volume 1 -2%
+
+

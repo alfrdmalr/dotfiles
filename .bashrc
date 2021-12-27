@@ -2,7 +2,7 @@
 export WALLPAPER_HOME=~/images/wallpapers
 export HISTSIZE=10000
 # allow dotfiles in fzf
-export FZF_DEFAULT_COMMAND='find .'
+export FZF_DEFAULT_COMMAND='rg --files .'
 
 # use wal theme on new terminals
 cat ~/.cache/wal/sequences
@@ -10,6 +10,11 @@ cat ~/.cache/wal/sequences
 # source aliases
 if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
+fi
+
+# source local (secret) aliases
+if [ -f ~/.bash_local_aliases ]; then
+  source ~/.bash_local_aliases
 fi
 
 # source scripts

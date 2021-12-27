@@ -1,14 +1,32 @@
+" options specifying ONLY {branch: main} are to circumvent the old 'master' default branch name
 call plug#begin()
 Plug 'tpope/vim-fugitive' "git stuff
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() }} "install latest binary for fzf
 Plug 'junegunn/fzf.vim' "fuzzy finder for vim
+
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'leafgarland/typescript-vim' "tsx syntax highlight
-Plug 'peitalin/vim-jsx-typescript'
+"Plug 'nvim-lua/completion-nvim' "deprecated/archived
+"consider nvim-cmp vs coq
+"consider saga
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'akinsho/flutter-tools.nvim', {'branch': 'main'}
+
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+Plug 'hrsh7th/vim-vsnip' 
+
+Plug 'dart-lang/dart-vim-plugin' "dart syntax highligh
+Plug 'leafgarland/typescript-vim' "ts syntax highlight
+Plug 'peitalin/vim-jsx-typescript' "j/tsx syntax highlight
 "Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal.vim'
 "Plug 'mattn/emmet-vim'
+
 
 call plug#end()
 

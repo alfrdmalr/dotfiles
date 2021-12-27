@@ -2,42 +2,91 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
+" open menu but don't autocomplete until selected
+set completeopt=menuone,noinsert
+
 lua << EOF
-local nvim_lsp = require('lspconfig')
+-- nvim-cmp (completion engine) setup
+local cmp = require "cmp"
+cmp.setup({
+  -- a snippet engine is soft required for completion; choice of vsnip is arbitrary
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- use vsnip for snippets
+    end,
+  },
+  mapping = {
+    -- up/down already work for controlling menu
+    ['<Tab>'] = cmp.mapping.confirm({
+      select = true,
+      behavior = cmp.ConfirmBehavior.Replace
+    }),
+  },
+  -- configure completion sources
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- use buffer as source for `/` searching
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- use buffer as source for cmdline
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+-- lsp setup
+-- load additional completion capabilities from nvim_lsp
+local nvim_lsp = require "lspconfig"
 
 local on_attach = function(client, bufnr)
-  require'completion'.on_attach(client, bufnr) 
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- Enable completion triggered by <c-x><c-o> ; not using this?
+  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings
   local opts = { noremap=true, silent=true }
-
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'gh', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<C-l>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gh', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gm', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-l>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F5>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 end
 
-local servers = {'tsserver', 'pyright', 'vimls'}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+local servers = {'tsserver', 'pyright', 'vimls', 'dartls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
       debounce_text_changes = 150
+      }
     }
-  }
 end
+
+-- flutter tools
+require('flutter-tools').setup{} -- default setup params
+
 EOF
 
-" open menu but don't autocomplete until selected
-set completeopt=menuone,noinsert
+
 " up/down arrows to navigate through suggestions menu
 inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
@@ -49,7 +98,9 @@ let g:completion_confirm_key = ""
 " otherwise, close the menu and insert a tab normally
 " otherwise just insert a tab normally
 imap <expr> <Tab>  pumvisible() ? complete_info()["selected"] != "-1" ?
-                    \ "\<Plug>(completion_confirm_completion)"  : 
-                    \ "\<c-e>\<Tab>" :  
-                  \ "\<Tab>"
+      \ "\<Plug>(completion_confirm_completion)"  : 
+      \ "\<c-e>\<Tab>" :  
+      \ "\<Tab>"
 imap <silent> <c-p> <Plug>(completion_trigger)
+nnoremap <silent> <F5> <cmd>lua vim.lsp.buf.code_action()<CR>
+

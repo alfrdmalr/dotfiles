@@ -2,7 +2,7 @@
     "wallpaper": "/home/lfre/images/wallpapers/forestpath.jpg",
     "alpha": "100",
     "special": {
-        "background": "#12191a",
+        "background": "#222B2a",
         "foreground": "#d5d9d4",
         "cursor": "#d5d9d4"
     },

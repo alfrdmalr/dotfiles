@@ -6,7 +6,31 @@ I've installed or use as part of my workflow. It also serves as documentation
 for myself when changing my setup or performing some uncommon operation.
 
 # Setup
+I use a bare git repository 
+(as described in [this post](https://www.atlassian.com/git/tutorials/dotfiles))
+located in `$HOME/.dotfiles`.
 
+## The gist
+- create the `$HOME/.dotfiles` directory: (`git init --bare $HOME/.dotfiles`)
+- alias `dot` to tell git where we're storing changes and where to look for
+  changes: `/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME`. Use
+  `dot` as a drop-in for `git` to interact with this repo.
+- hide files from git by default: `dot --local status.showUntrackedFiles no`
+  (when creating new files, need to manually track them with `dot add [file]`)
+
+## Cloning:
+```
+git clone --bare [repo url] $HOME/.dotfiles
+```
+
+To apply the changes once the repo's been pulled down:
+```
+dot checkout
+```
+
+This will likely have conflicts with existing files that already exist,
+like `.xinitrc` or `.bashrc`. Either rename them and merge manually after
+checkout or nuke them and replace with the checkout.
 
 # Scripts
 

@@ -5,4 +5,4 @@ configuration {
   bw: 100;
 }
 
-@theme "~/.cache/wal/colors-rofi-light"
+@theme "~/.cache/wal/colors-rofi-dark"

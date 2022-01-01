@@ -1,11 +1,6 @@
 #! /bin/sh
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-# orient monitors like:
-# hdmi(v) | dp-1(h) | dvi-d-1(v)
-xrandr --output HDMI-1 --rotate left --left-of DP-1
-xrandr --output DVI-D-1 --rotate right --right-of DP-1
-
 # set background/colorscheme
 ~/.fehbg &
 wal -n -R
@@ -18,6 +13,9 @@ picom -b --experimental-backends &
 # start picom
 picom -b &
 
+#network manager
+nm-applet --indicator &
+
 # launch polybar
 $HOME/.config/polybar/launch.sh
 
@@ -25,9 +23,7 @@ $HOME/.config/polybar/launch.sh
 udiskie &
 
 #actual bspwm config
-bspc monitor DVI-D-1 -d 3 6 9
-bspc monitor DP-1 -d 2 5 8
-bspc monitor HDMI-1 -d 0 1 4 7
+bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 0
 
 bspc config window_gap          25
 

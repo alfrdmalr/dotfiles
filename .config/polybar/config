@@ -59,7 +59,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm xkeyboard
-modules-center = mpd
+modules-center = title
 modules-right = filesystem memory cpu pulseaudio eth date  
 
 tray-position = right
@@ -86,7 +86,7 @@ label = %title:0:30:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
-blackliist-0 = num lock
+blacklist-0 = num lock
 
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
@@ -136,6 +136,15 @@ label-empty = [ ]
 label-empty-padding = 0
 label-empty-background = ${colors.background}
 label-empty-foreground = ${colors.foreground-alt}
+
+[module/title]
+type = internal/xwindow
+format = <label>
+format-background = ${colors.bg}
+format-foreground = ${colors.fg}
+format-padding = 4
+
+label = "%title%"
 
 [module/i3]
 type = internal/i3

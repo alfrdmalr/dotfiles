@@ -34,6 +34,13 @@ checkout or nuke them and replace with the checkout.
 
 ## Scripts
 
+## Reference
+Commands/tools I always forget and need infrequently.
+
+### Disk Imaging
+Use `dd`
+
+
 ## Packages
 ### alacritty
 _Terminal emulator_. Using because text looks crisp, it's pretty fast, and works

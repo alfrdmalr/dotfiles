@@ -5,9 +5,11 @@
 
 ! font settings
 URxvt.font: xft:myFont:size=myFontSize
-URxvt*italicFont: xft:myFont:italic:size=myFontSize
-URxvt*boldFont: xft:myFont:bold:autohint=true:size=myFontSize
+URxvt.italicFont: xft:myFont:italic:size=myFontSize
+URxvt.boldFont: xft:myFont:bold:autohint=true:size=myFontSize
 URxvt*boldItalicFont: xft:myFont:bold:autohint=true:italic:size=myFontSize
+
+URxvt.lineSpace: -1
 
 ! emit xterm keycodes instead of whatever the hell URxvt does. Mostly for vim 
 URxvt.keysym.Control-Up: \033[1;5A

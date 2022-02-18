@@ -60,7 +60,8 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gh', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gh', '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gH', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gm', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-l>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
@@ -82,7 +83,12 @@ for _, lsp in ipairs(servers) do
 end
 
 -- flutter tools
-require('flutter-tools').setup{} -- default setup params
+require('flutter-tools').setup{
+  lsp = {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
+} -- default setup params
 
 EOF
 

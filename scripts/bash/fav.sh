@@ -11,3 +11,7 @@ fav() {
 favls() {
   cat ~/.favorites
 }
+
+edit-fav() {
+  nvim ~/.favorites
+}

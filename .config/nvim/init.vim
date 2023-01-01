@@ -64,14 +64,14 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gH', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gm', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-l>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-l>', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F5>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local servers = {'tsserver', 'pyright', 'vimls', 'dartls'}
+local servers = {'tsserver', 'pyright', 'vimls', 'dartls', 'terraformls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -82,6 +82,15 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+local elm_attach = function(client)
+  if client.config.flags then
+    client.config.flags.allow_incremental_sync = true
+  end
+end
+require('lspconfig').elmls.setup({
+  on_attach = elm_attach;
+})
+
 -- flutter tools
 require('flutter-tools').setup{
   lsp = {
@@ -91,7 +100,6 @@ require('flutter-tools').setup{
 } -- default setup params
 
 EOF
-
 
 " up/down arrows to navigate through suggestions menu
 inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"

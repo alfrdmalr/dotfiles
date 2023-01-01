@@ -20,13 +20,16 @@ Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
 Plug 'hrsh7th/vim-vsnip' 
 
-Plug 'dart-lang/dart-vim-plugin' "dart syntax highligh
+Plug 'dart-lang/dart-vim-plugin' "dart syntax highlight
 Plug 'leafgarland/typescript-vim' "ts syntax highlight
 Plug 'peitalin/vim-jsx-typescript' "j/tsx syntax highlight
+
 "Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal.vim'
 "Plug 'mattn/emmet-vim'
-
+"
+" onedark colorscheme
+Plug 'http://github.com/joshdick/onedark.vim.git'
 
 call plug#end()
 
@@ -49,7 +52,8 @@ set splitright
 
 set showmatch "highlight matching braces
 syntax on
-colorscheme wal "use wal theme as colorscheme
+"colorscheme wal "use wal theme as colorscheme
+colorscheme onedark
 " better contrast with coc-highlight
 hi NvimInternalError ctermfg=0 ctermbg=9
 hi Comment cterm=italic

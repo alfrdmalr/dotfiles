@@ -1,10 +1,15 @@
 #! /bin/sh
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+MID=DP-2
+LEFT=DP-0
+RIGHT=DP-4
+
 # orient monitors like:
-# hdmi(v) | dp-1(h) | dvi-d-1(v)
-#xrandr --output HDMI-1 --rotate left --left-of DP-1
-#xrandr --output DVI-D-1 --rotate right --right-of DP-1
+xrandr \ 
+  --output $MID --auto --primary  --pos 2560x0  \
+  --output $LEFT --mode 2560x1440 --left-of $MID --rate 144.00 --pos 0x0  \
+  --output $RIGHT --mode 2560x1440 --rate 144.00 --right-of $MID --pos 6400x0
 
 # set background/colorscheme
 ~/.fehbg &
@@ -15,8 +20,6 @@ unclutter --timeout 2 &
 
 # start compositor for transparency/blur
 picom -b --experimental-backends &
-# start picom
-picom -b &
 
 # launch polybar
 $HOME/.config/polybar/launch.sh
@@ -25,9 +28,9 @@ $HOME/.config/polybar/launch.sh
 udiskie &
 
 #actual bspwm config
-bspc monitor DVI-D-2  -d 3 6 9
-bspc monitor DP-1 -d 2 5 8
-bspc monitor HDMI-1 -d 0 1 4 7
+bspc monitor $RIGHT -d 3 6 9
+bspc monitor $MID -d 2 5 8
+bspc monitor $LEFT -d 0 1 4 7
 
 bspc config window_gap          25
 

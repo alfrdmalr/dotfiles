@@ -12,3 +12,7 @@ alias activate='source venv/bin/activate'
 alias uncommit='git reset --soft HEAD^'
 alias refresh-wal='wal -nf ~/.cache/wal/colors.json'
 alias purge='yay -Rs'
+# fix monitor positioning if xrandr doesn't quite get it right
+alias fix-monitors='xrandr --output DP-0 --pos 0x0 --output DP-2 --pos 2560x0'
+# not quite ready
+#alias dotfiles='echo $(dot ls-tree --full-tree --name-only -r HEAD | fzf)'

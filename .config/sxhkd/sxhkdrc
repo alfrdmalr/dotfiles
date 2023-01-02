@@ -10,9 +10,6 @@ super + Return
 super + Escape
 	rofi -show combi
 
-super + alt + BackSpace
-  bspc quit
-
 # lock screen
 super + l
   slock
@@ -70,7 +67,7 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }c
+super + {_,shift + }Tab
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
@@ -78,7 +75,7 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
+super + {grave,c}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
@@ -91,6 +88,9 @@ super + {o,i}
 super + {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
 
+super + ctrl + {1-9,0}
+  ~/.config/bspwm/swap-desktops.sh {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+
 #
 # preselect
 #
@@ -100,8 +100,9 @@ super + alt + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+# conflicts with swap keybind
+#super + shift + {1-9}
+#	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space

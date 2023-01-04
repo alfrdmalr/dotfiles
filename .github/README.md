@@ -61,6 +61,9 @@ _Image viewer_. Used to view images (woah) and set wallpaper.
 `--no-xinerama` to span one image across all monitors. Can assign different
 wallpapers to individual monitors like `feh --bg-fill [path1] [path2] [path3]`
 
+### mpv
+_media player_. Plays video/audio with no config: `mpv [my-file]`.
+
 ### nvim
 _Text editor_. Using nvim over vim for features like native lsp.
 
@@ -87,6 +90,14 @@ Config: [`.config/rofi/config.rasi`](./.config/rofi/config.rasi)
 _Hotkey daemon_. Handles global hotkeys as well as wm-specific hotkeys.
 
 Config [`.config/sxhkd/sxhkdrc`](./.config/sxhkd/sxhkdrc)
+
+### termdown
+_CLI timer_. Run `termdown 5m` for a 5 minute timer.
+When it's done, it will just...end - can chain it into 
+another program to notify that the timer has ended. For example:
+```
+termdown 10m && mpv ~/audio/music/twewy/02\ Twister.mp3
+```
 
 ### udiskie
 _Automounter_. For simple handling of removable storage. Mounts to `/run/media/$USER` - can unmount

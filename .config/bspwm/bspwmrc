@@ -6,10 +6,9 @@ LEFT=DP-0
 RIGHT=DP-4
 
 # orient monitors like:
-xrandr \ 
-  --output $MID --auto --primary  --pos 2560x0  \
-  --output $LEFT --mode 2560x1440 --left-of $MID --rate 144.00 --pos 0x0  \
-  --output $RIGHT --mode 2560x1440 --rate 144.00 --right-of $MID --pos 6400x0
+xrandr --output $MID --auto --primary --pos 2560x0
+xrandr --output $LEFT --mode 2560x1440 --left-of $MID --rate 144.00
+xrandr --output $RIGHT --mode 2560x1440 --right-of $MID --rate 144.00
 
 # set background/colorscheme
 ~/.fehbg &
@@ -19,7 +18,7 @@ wal -n -R
 unclutter --timeout 2 &
 
 # start compositor for transparency/blur
-picom -b --experimental-backends &
+picom -b &
 
 # launch polybar
 $HOME/.config/polybar/launch.sh
@@ -32,7 +31,7 @@ bspc monitor $RIGHT -d 3 6 9
 bspc monitor $MID -d 2 5 8
 bspc monitor $LEFT -d 0 1 4 7
 
-bspc config window_gap           40
+bspc config window_gap           60
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   false

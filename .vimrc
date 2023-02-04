@@ -28,8 +28,9 @@ Plug 'peitalin/vim-jsx-typescript' "j/tsx syntax highlight
 Plug 'dylanaraps/wal.vim'
 "Plug 'mattn/emmet-vim'
 "
-" onedark colorscheme
+" colorschemes
 Plug 'http://github.com/joshdick/onedark.vim.git'
+Plug 'http://github.com/rakr/vim-one.vim.git'
 
 call plug#end()
 
@@ -52,10 +53,9 @@ set splitright
 
 set showmatch "highlight matching braces
 syntax on
-"colorscheme wal "use wal theme as colorscheme
-colorscheme onedark
-" better contrast with coc-highlight
-hi NvimInternalError ctermfg=0 ctermbg=9
+colorscheme wal "use wal theme as colorscheme
+"colorscheme onedark
+
 hi Comment cterm=italic
 
 set textwidth=79
@@ -103,10 +103,25 @@ set statusline+=\ %l,%c\ \|\ %L
 let g:netrw_banner = 0
 
 "buffer split navigation
+" using qmk navlayer (control/arrows)
 nnoremap <C-LEFT> <C-W><C-H> 
 nnoremap <C-DOWN> <C-W><C-J> 
 nnoremap <C-UP> <C-W><C-K> 
 nnoremap <C-RIGHT> <C-W><C-L>
+tnoremap <C-LEFT> <C-\><C-N><C-W><C-H> 
+tnoremap <C-DOWN> <C-\><C-N><C-W><C-J> 
+tnoremap <C-UP> <C-\><C-N><C-W><C-K> 
+tnoremap <C-RIGHT> <C-\><C-N><C-W><C-L>
+" using alt + hjkl
+nnoremap <A-h> <C-W><C-H> 
+nnoremap <A-j> <C-W><C-J> 
+nnoremap <A-k> <C-W><C-K> 
+nnoremap <A-l> <C-W><C-L>
+tnoremap <A-h> <C-W><C-H> 
+tnoremap <A-j> <C-W><C-J> 
+tnoremap <A-k> <C-W><C-K> 
+tnoremap <A-l> <C-W><C-L>
+
 "fuzzy find with control-p
 nnoremap <C-P> :FZF<CR>
 "ripgrep search from current dir
@@ -126,3 +141,6 @@ nnoremap <F2> :set cuc! cul!<CR>
 inoremap <F7> <C-X><C-O>
 "open terminal in new window
 nnoremap ;t :sp<CR>:term<CR>
+"back to normal mode when editing in terminal mode
+"Alt-Esc instead of Esc to support nested terminals :P
+tnoremap <A-Esc> <C-\><C-N>

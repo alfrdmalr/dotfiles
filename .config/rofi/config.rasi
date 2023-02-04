@@ -1,8 +1,9 @@
 configuration {
-  modi: "window,run,combi";
-  combi-modi: "window,run";
+  modes: "window,run,combi";
+  combi-modes: "window,run";
   font: "Iosevka Fixed 14";
   bw: 100;
+  monitor: -4; // open on monitor with focused window
 }
 
 @theme "~/.cache/wal/colors-rofi-dark"

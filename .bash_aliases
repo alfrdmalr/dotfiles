@@ -17,3 +17,4 @@ alias purge='yay -Rs'
 alias fix-monitors='xrandr --output DP-2 --right-of DP-0; xrandr --output DP-4 --right-of DP-2'
 # not quite ready
 #alias dotfiles='echo $(dot ls-tree --full-tree --name-only -r HEAD | fzf)'
+alias vim='nvim'

@@ -1,9 +1,9 @@
 #! /bin/sh
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-MID=DP-2
-LEFT=DP-0
-RIGHT=DP-4
+MID=DP-4
+LEFT=DP-2
+RIGHT=DP-0
 
 # orient monitors like:
 xrandr --output $MID --auto --primary --pos 2560x0

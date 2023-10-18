@@ -126,6 +126,8 @@ tnoremap <A-l> <C-W><C-L>
 nnoremap <C-P> :FZF<CR>
 "ripgrep search from current dir
 nnoremap <F8> :Rg<CR>
+"buffer search
+nnoremap <F7> :Buffers<CR>
 "toggle netrw directory tree
 nnoremap <F4> :Lexplore<CR>
 "git fugitive window:

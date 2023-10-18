@@ -15,7 +15,7 @@ located in `$HOME/.dotfiles`.
 - alias `dot` to tell git where we're storing changes and where to look for
   changes: `/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME`. Use
   `dot` as a drop-in for `git` to interact with this repo.
-- hide files from git by default: `dot --local status.showUntrackedFiles no`
+- hide files from git by default: (from `.dotfiles`) `git config --local status.showUntrackedFiles no`
   (when creating new files, need to manually track them with `dot add [file]`)
 
 ### Cloning:

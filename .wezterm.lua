@@ -8,16 +8,17 @@ end
 
 config.hide_tab_bar_if_only_one_tab = true
 
---config.color_scheme = "Github"
+local darkmode = false
 
-config.color_scheme = "One Dark (Gogh)"
--- the one dark foreground is too low contrast for my colorblind eyes
-config.colors = {
-  foreground = 'silver',
-}
---config.color_scheme = "One Light (Gogh)"
---config.color_scheme = "Nord Light (Gogh)"
-
+if darkmode then
+  config.color_scheme = "One Dark (Gogh)"
+  -- the one dark foreground is too low contrast for my colorblind eyes
+  config.colors = {
+    foreground = 'silver',
+  }
+else
+  config.color_scheme = "One Light (Gogh)"
+end
 
 --config.font = wezterm.font 'Fira Code'
 config.font = wezterm.font 'Iosevka'

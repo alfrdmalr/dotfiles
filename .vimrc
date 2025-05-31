@@ -5,13 +5,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() }} "install latest binary for fz
 Plug 'junegunn/fzf.vim' "fuzzy finder for vim
 
 Plug 'neovim/nvim-lspconfig'
-"Plug 'nvim-lua/completion-nvim' "deprecated/archived
-"consider nvim-cmp vs coq
-"consider saga
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'akinsho/flutter-tools.nvim', {'branch': 'main'}
 
+"completion
 Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
 Plug 'hrsh7th/cmp-path', {'branch': 'main'}
@@ -20,17 +17,13 @@ Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
 Plug 'hrsh7th/vim-vsnip' 
 
-Plug 'dart-lang/dart-vim-plugin' "dart syntax highlight
 Plug 'leafgarland/typescript-vim' "ts syntax highlight
 Plug 'peitalin/vim-jsx-typescript' "j/tsx syntax highlight
 
-"Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal.vim'
-"Plug 'mattn/emmet-vim'
-"
-" colorschemes
-Plug 'http://github.com/joshdick/onedark.vim.git'
-Plug 'http://github.com/rakr/vim-one.vim.git'
+
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
@@ -53,8 +46,10 @@ set splitright
 
 set showmatch "highlight matching braces
 syntax on
-colorscheme wal "use wal theme as colorscheme
-"colorscheme onedark
+
+set termguicolors
+colorscheme one
+set background=dark
 
 hi Comment cterm=italic
 
@@ -76,32 +71,30 @@ function! StatusLineGit()
   return strlen(l:branchname) > 0?''.l:branchname.' ':''
 endfunction
 
+hi statusline ctermbg=8 ctermfg=4 
+
 set laststatus=2 "always show
 set statusline=
 "truncate from this point
 set statusline+=%<
 "show branch name if exists (max 20 chars)
-set statusline+=%#SpecialKey#
 set statusline+=%{StatusLineGit()}
-"show filename (tail)
-"set statusline+=%#SpecialKey#
-"set statusline+=%t\  
 "file name (from current dir)
-set statusline+=%#RedrawDebugComposed#
 set statusline+=\ %f\  
 "right side
 set statusline+=%=  
 "file type
-set statusline+=%#RedrawDebugComposed#
 set statusline+=%y\  
 "cur line / total lines
-set statusline+=%#SpecialKey#
 set statusline+=\ %l,%c\ \|\ %L
 
 "netrw stuff
 "start with banner collapsed
 let g:netrw_banner = 0
 
+
+"set leader key to semicolon
+let g:mapleader=';'
 "buffer split navigation
 " using qmk navlayer (control/arrows)
 nnoremap <C-LEFT> <C-W><C-H> 
@@ -126,10 +119,12 @@ tnoremap <A-l> <C-W><C-L>
 nnoremap <C-P> :FZF<CR>
 "ripgrep search from current dir
 nnoremap <F8> :Rg<CR>
+"buffer search
+nnoremap <F7> :Buffers<CR>
 "toggle netrw directory tree
 nnoremap <F4> :Lexplore<CR>
 "git fugitive window:
-nnoremap <F12> :Git<CR> 
+nnoremap <F12> :Git<CR> :winc H<CR> :vert res 80<CR>
 "apply suggestions
 "nnoremap <F5> ???
 "reload this file
@@ -140,7 +135,11 @@ nnoremap <F6> :w<CR>
 nnoremap <F2> :set cuc! cul!<CR>
 inoremap <F7> <C-X><C-O>
 "open terminal in new window
-nnoremap ;t :sp<CR>:term<CR>
+nnoremap <Leader>t :sp<CR>:term<CR>
 "back to normal mode when editing in terminal mode
 "Alt-Esc instead of Esc to support nested terminals :P
 tnoremap <A-Esc> <C-\><C-N>
+" double leader to flip between two most recent buffers
+nnoremap <Leader><Leader> <C-^>
+" equalize split size
+nnoremap <Leader><Space> <C-W>=

@@ -40,9 +40,8 @@ Commands/tools I always forget and need infrequently.
 ### Disk Imaging
 Use `dd`
 
-
 ## Packages
-### alacritty
+### alacritty (TODO remove)
 _Terminal emulator_. Using because text looks crisp, it's pretty fast, and works
 ootb how I expect.
 
@@ -53,6 +52,10 @@ _Window manager_. Mostly use some hybrid of automatic/manual tiling.
 
 Config: [`.config/bspwm/bspwmrc`](./.config/bspwm/bspwmrc)
 
+### dbeaver
+_SQL client_. View databases, has reasonable options for read-only and "safe"
+mode with transactions.
+
 ### feh
 _Image viewer_. Used to view images (woah) and set wallpaper.
 
@@ -61,13 +64,44 @@ _Image viewer_. Used to view images (woah) and set wallpaper.
 `--no-xinerama` to span one image across all monitors. Can assign different
 wallpapers to individual monitors like `feh --bg-fill [path1] [path2] [path3]`
 
+### firefox
+_Browser_. Browse internet pages and such.
+
+### fonts
+- `ttf-fira-code`
+- `ttf-iosevka`
+
+### fzf
+_Fuzzy finder_. Dependency for some custom scripts and [n]vim commands.
+
+### glow
+_Markdown Viewer_. TUI for viewing markdown - decent middle ground between raw
+text and html.
+
 ### mpv
 _media player_. Plays video/audio with no config: `mpv [my-file]`.
+
+### ncpamixer
+_Audio mixer_. Console-based mixer for Pulse Audio (used to use pavucontrol -
+trying this out)
 
 ### nvim
 _Text editor_. Using nvim over vim for features like native lsp.
 
 Config: [`.config/nvim/init.vim`](./.config/nvim/init.vim). See also [vim](#vim)
+
+#### Language Server Configuration
+Language servers must be provided separately; the method depends on the
+language
+- typescript
+    - `tsserver`: managed via system package manager at
+      `typescript-language-server` (AUR) 
+
+### obsidian
+_Note taking_. "Knowledge in the world."
+
+### paru
+_Package Manager_. AUR helper
 
 ### picom
 _Compositor_. Used for transparency, blur, drop shadows, etc. Running as a
@@ -78,7 +112,25 @@ Config: [`.config/picom/picom.conf`](./.config/picom/picom.conf)
 ### polybar
 _Status bar_. Use to display time/network/hardware usage/volume/wm info.
 
+### playerctl
+_Media controller_. Allow play/pause/skip media via mediakeys
+ 
+### pulseaudio
+_Sound system_. Layer between ALSA and applications - see ncpamixer.
+Should run automatically - run manually with `pulseaudio` and as a daemon with
+`pulseaudio --daemonize`
+
 Config: [`.config/polybar/`](./.config/polybar)
+
+### redshift
+_Color temperature control_. Simple configuration based on location and
+brightness/time ranges.
+
+Config: [`.config/redshift.conf`](./config/redshift.conf)
+
+### ripgrep
+_Search tool/pattern matching_. Use with `rg`. Dependency for some custom
+scripts and vim commands.
 
 ### rofi
 _Menu_. Use globally to run applications/switch windows, using in scripts to
@@ -86,10 +138,19 @@ emulate dmenu (`rofi -dmenu`).
 
 Config: [`.config/rofi/config.rasi`](./.config/rofi/config.rasi)
 
+### slack-desktop
+_Communications_
+
+### steam
+_Gaming Library_.
+
 ### sxhkd
 _Hotkey daemon_. Handles global hotkeys as well as wm-specific hotkeys.
 
 Config [`.config/sxhkd/sxhkdrc`](./.config/sxhkd/sxhkdrc)
+
+### xclip
+_Clipboard interface_.
 
 ### termdown
 _CLI timer_. Run `termdown 5m` for a 5 minute timer.
@@ -98,10 +159,6 @@ another program to notify that the timer has ended. For example:
 ```
 termdown 10m && mpv ~/audio/music/twewy/02\ Twister.mp3
 ```
-
-### udiskie
-_Automounter_. For simple handling of removable storage. Mounts to `/run/media/$USER` - can unmount
-with `udiskie-umount [path]`
 
 ### vim
 _Text editor_. Using [nvim](#nvim) these days, but I try to keep as much of the config as 
@@ -117,5 +174,7 @@ No particular config, but I do save some colorscheme `.json` files to
 [`.config/wal/colorschemes`](./.config/wal/colorschemes) to be loaded with `wal
 -n --theme [path]` (`-n` for "no wallpaper")
 
-### yay
-_Package manager_. Thin convenience wrapper around pacman.
+### wezterm
+_Terminal emulator_.
+
+Config: [.wezterm.lua](.wezterm.lua)

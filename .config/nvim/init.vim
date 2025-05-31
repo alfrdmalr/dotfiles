@@ -15,13 +15,22 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body) -- use vsnip for snippets
     end,
   },
-  mapping = {
-    -- up/down already work for controlling menu
-    ['<Tab>'] = cmp.mapping.confirm({
-      select = true,
-      behavior = cmp.ConfirmBehavior.Replace
-    }),
-  },
+
+  mapping = cmp.mapping.preset.insert({
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
+      if not cmp.visible() then
+        fallback()
+      else
+        local entry = cmp.get_selected_entry()
+        if not entry then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        end
+        cmp.confirm()
+      end
+    end, {"i","s","c",}),
+  }),
+
   -- configure completion sources
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -40,6 +49,39 @@ cmp.setup.cmdline('/', {
 
 -- use buffer as source for cmdline
 cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline({
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
+      if not cmp.visible() then
+        fallback()
+      else
+        local entry = cmp.get_selected_entry()
+        if not entry then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        end
+        cmp.confirm()
+      end
+    end, {"i","s","c",}),
+
+    -- naive approach to achieve this behavior; there's probably a better, native way of navigating menu options via up/down arrows
+    ["<Up>"] = cmp.mapping(function(fallback)
+      if not cmp.visible() then
+        fallback()
+      else
+        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+      end
+    end, {"i", "s", "c"}),
+
+    ["<Down>"] = cmp.mapping(function(fallback)
+      if not cmp.visible() then
+        fallback()
+      else
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      end
+    end, {"i", "s", "c"})
+
+  }),
+
   sources = cmp.config.sources({
     { name = 'path' }
   }, {
@@ -69,9 +111,9 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-local servers = {'tsserver', 'pyright', 'vimls', 'dartls', 'terraformls' }
+local servers = {'tsserver', 'pyright', 'vimls', 'dartls', 'terraformls', 'gopls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -90,14 +132,6 @@ end
 require('lspconfig').elmls.setup({
   on_attach = elm_attach;
 })
-
--- flutter tools
-require('flutter-tools').setup{
-  lsp = {
-    on_attach = on_attach,
-    capabilities = capabilities
-  }
-} -- default setup params
 
 EOF
 

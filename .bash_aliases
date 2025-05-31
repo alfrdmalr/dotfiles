@@ -13,7 +13,9 @@ alias uncommit='git reset --soft HEAD^'
 alias refresh-wal='wal -nf ~/.cache/wal/colors.json'
 alias purge='paru -Rs'
 # fix monitor positioning if xrandr doesn't quite get it right
-#alias fix-monitors='xrandr --output DP-0 --pos 0x0 --output DP-2 --pos 2560x0'
 alias fix-monitors='xrandr --output DP-2 --right-of DP-0; xrandr --output DP-4 --right-of DP-2'
-# not quite ready
-#alias dotfiles='echo $(dot ls-tree --full-tree --name-only -r HEAD | fzf)'
+alias kc='kubectl'
+alias aws-bt='export AWS_PROFILE=braintrust-dev'
+alias gcb='git checkout -b'
+alias gs='git status'
+alias here='wezterm start --cwd $(pwd)'

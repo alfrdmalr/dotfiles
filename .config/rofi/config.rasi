@@ -6,4 +6,5 @@ configuration {
   monitor: -4; // open on monitor with focused window
 }
 
-@theme "~/.cache/wal/colors-rofi-dark"
+// themes found in /usr/share/rofi/themes
+@theme "glue_pro_blue"

@@ -14,8 +14,13 @@ alias refresh-wal='wal -nf ~/.cache/wal/colors.json'
 alias purge='paru -Rs'
 # fix monitor positioning if xrandr doesn't quite get it right
 alias fix-monitors='xrandr --output DP-2 --right-of DP-0; xrandr --output DP-4 --right-of DP-2'
-alias kc='kubectl'
-alias aws-bt='export AWS_PROFILE=braintrust-dev'
 alias gcb='git checkout -b'
 alias gs='git status'
 alias here='wezterm start --cwd $(pwd)'
+# work (AppEvolve/Braintrust)
+alias kc='kubectl'
+alias aws-bt='export AWS_PROFILE=braintrust-dev'
+alias aws-bt-prod='export AWS_PROFILE=braintrust-prod'
+# exports the variables from a specific file. Obviously unsafe/dependent on the
+# file contents
+alias glenv='set -a; source ~/projects/braintrust/air-pilot/docker/.env; set +a'

@@ -15,6 +15,8 @@ Plug 'hrsh7th/cmp-path', {'branch': 'main'}
 Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+
+" snippets
 Plug 'hrsh7th/vim-vsnip' 
 
 Plug 'leafgarland/typescript-vim' "ts syntax highlight
@@ -24,6 +26,11 @@ Plug 'dylanaraps/wal.vim'
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'
+
+" If you don't have nodejs and yarn
+" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -49,7 +56,8 @@ syntax on
 
 set termguicolors
 colorscheme one
-set background=dark
+let g:one_allow_italics = 1
+set background=light
 
 hi Comment cterm=italic
 
@@ -92,6 +100,10 @@ set statusline+=\ %l,%c\ \|\ %L
 "start with banner collapsed
 let g:netrw_banner = 0
 
+"markdown preview
+let g:mkdp_preview_options = {
+  \ 'disable_sync_scroll': 0
+  \ }
 
 "set leader key to semicolon
 let g:mapleader=';'
@@ -143,3 +155,10 @@ tnoremap <A-Esc> <C-\><C-N>
 nnoremap <Leader><Leader> <C-^>
 " equalize split size
 nnoremap <Leader><Space> <C-W>=
+
+" VSnip configuration:
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'

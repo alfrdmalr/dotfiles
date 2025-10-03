@@ -78,6 +78,13 @@ _Fuzzy finder_. Dependency for some custom scripts and [n]vim commands.
 _Markdown Viewer_. TUI for viewing markdown - decent middle ground between raw
 text and html.
 
+### maim
+_screenshot tool_. cli utility for capturing screenshots. 
+
+```
+maim -s my_file.png
+```
+
 ### mpv
 _media player_. Plays video/audio with no config: `mpv [my-file]`.
 
